@@ -50,5 +50,20 @@ router.patch("/user/updateU", async(req, res, next) => {
     }
 });
 
+// Delete Requests
+router.delete("/user/delete/:username", async(req, res, next) => {
+    const conditions = { username: req.params.username};
+    try {
+        const deleted = await user.findOneAndDelete(conditions);
+        if (deleted) {
+            res.send(deleted);
+        } else {
+            res.status(404).send();
+        }
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
