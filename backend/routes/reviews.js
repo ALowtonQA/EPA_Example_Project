@@ -14,5 +14,19 @@ router.get("/review/getAll", async(req, res, next) => {
     }
 });
 
+router.get("/review/get/:id", async(req, res, next) => {
+    try {
+        const found = await review.findById(req.params.id);
+
+        if (found) 
+            res.send(found);
+        else 
+            res.status(404).send();
+    
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
