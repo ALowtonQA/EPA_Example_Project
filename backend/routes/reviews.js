@@ -39,5 +39,21 @@ router.post("/review/create", async(req, res, next) => {
     }
 });
 
+// Patch Requests
+router.put("/review/update/:id", async(req, res, next) => {
+    const filter = { _id: req.params.id };
+    try {
+        const updated = await review.findOneAndReplace(filter, req.body);
+
+        if (updated) 
+            res.send(updated);
+        else 
+            res.status(404).send();
+
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
