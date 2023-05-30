@@ -18,5 +18,16 @@ router.post("/user/login", async(req, res, next) => {
     }
 });
 
+// Post Requests
+router.post("/user/register", async(req, res, next) => {
+    const newUser = new user(req.body);
+    try {
+        const created = await newUser.save();
+        res.status(201).send(created);
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
