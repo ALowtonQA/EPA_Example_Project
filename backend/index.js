@@ -7,6 +7,8 @@ const app = express();
 const port = 8080;
 const mongoURL = "mongodb://127.0.0.1:27017/EPA";
 
+// Middleware, Routes & Config
+APP.use(CORS());                       // Disable Cross Origin Resource Sharing Restrictions
 APP.use(EXPRESS.json());              // JSON Body Parser
 
 // Connect to MongoDB
