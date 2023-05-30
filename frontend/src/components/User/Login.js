@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
@@ -24,9 +25,21 @@ function Copyright(props) {
 }
 
 export default function Login() {
-    
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
-   
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    axios.post("http://localhost:8080/user/login", {"username" : data.get("username"), "password" : data.get("password")})
+      .then((response) => {
+          setTimeout(() => {
+            sessionStorage.setItem("username", data.get("username")); 
+            navigate("/Reviews");
+          }, 2000);
+      })
+      .catch((error) => {
+          console.log(error);
+      });
   };
 
   return (
@@ -108,6 +121,7 @@ export default function Login() {
             </Box>
           </Grid>
         </Grid>
+      }
     </>
   );
 }
