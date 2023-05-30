@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Tick from '../Extras/Tick';
 import { useState } from 'react';
+import { Alert } from '@mui/material';
 
 function Copyright(props) {
   return (
@@ -26,6 +27,7 @@ function Copyright(props) {
 
 export default function SignUp() {
   const [successful, setIsSuccessful] = useState(false);
+  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
@@ -36,12 +38,13 @@ export default function SignUp() {
       .then((response) => {
           setIsSuccessful(true);
           setTimeout(() => {
+            setError(null);
             sessionStorage.setItem("username", response.data.username); 
             navigate("/Reviews");
           }, 2000);
       })
       .catch((error) => {
-          console.log(error.message);
+          setError(error.message);
       });
   };
 
@@ -106,6 +109,7 @@ export default function SignUp() {
               </Grid>
             </Box>
           </Box>
+          {error && <Alert severity="error" sx={{ mt: 5}}>{error}</Alert>}
           <Copyright sx={{ mt: 5 }} />
         </Container>
       }
