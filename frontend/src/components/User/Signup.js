@@ -10,9 +10,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import Tick from '../Extras/Tick';
 import { useState } from 'react';
-import { Alert } from '@mui/material';
 
 function Copyright(props) {
   return (
@@ -26,6 +24,8 @@ function Copyright(props) {
 }
 
 export default function SignUp() {
+  const [successful, setIsSuccessful] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -33,6 +33,7 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
     axios.post("http://localhost:8080/user/register", {"username" : data.get("username"), "password" : data.get("password")})
       .then((response) => {
+          setIsSuccessful(true);
           setTimeout(() => {
             sessionStorage.setItem("username", response.data.username); 
             navigate("/Reviews");
@@ -45,6 +46,7 @@ export default function SignUp() {
 
   return (
     <>
+      {!successful && 
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -104,6 +106,7 @@ export default function SignUp() {
           </Box>
           <Copyright sx={{ mt: 5 }} />
         </Container>
+      }
     </>
   );
 }
