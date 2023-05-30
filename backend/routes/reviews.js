@@ -28,5 +28,16 @@ router.get("/review/get/:id", async(req, res, next) => {
     }
 });
 
+// Post Requests
+router.post("/review/create", async(req, res, next) => {
+    const newReview = new review(req.body);
+    try {
+        const created = await newReview.save();
+        res.status(201).send(created);
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
