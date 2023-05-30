@@ -69,6 +69,10 @@ function MainNavBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+            
+          <Link to="/Reviews">
+            <img src={NavLogo} alt="QA Logo" height="50" width="50"></img>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
