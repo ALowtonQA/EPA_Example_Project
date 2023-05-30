@@ -6,10 +6,20 @@ import UpdatePassword from './components/User/UpdatePassword';
 import UpdateUsername from './components/User/UpdateUsername';
 import DeleteUser from './components/User/DeleteUser';
 import CreateReview from './components/Reviews/CreateReview';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
 import UpdateReview from './components/Reviews/UpdateReview';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   return (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
       <Routes>
         <Route path="/" element={<Login />} /> 
         <Route path="/Logout" element={<Login />} /> 
@@ -21,6 +31,7 @@ function App() {
         <Route path="/Change Password" element={<UpdatePassword />} /> 
         <Route path="/Delete Account" element={<DeleteUser />} /> 
       </Routes>   
+    </ThemeProvider>
   );
 }
 
