@@ -11,6 +11,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
@@ -25,6 +26,8 @@ function Copyright(props) {
 }
 
 export default function Login() {
+  const [successful, setIsSuccessful] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -32,18 +35,20 @@ export default function Login() {
     const data = new FormData(event.currentTarget);
     axios.post("http://localhost:8080/user/login", {"username" : data.get("username"), "password" : data.get("password")})
       .then((response) => {
+          setIsSuccessful(true);
           setTimeout(() => {
             sessionStorage.setItem("username", data.get("username")); 
             navigate("/Reviews");
           }, 2000);
       })
       .catch((error) => {
-          console.log(error);
+          console.log(error.message);
       });
   };
 
   return (
     <>
+      {!successful && 
         <Grid container component="main" sx={{ height: '100vh' }}>
           <CssBaseline />
           <Grid
