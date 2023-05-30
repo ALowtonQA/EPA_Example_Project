@@ -29,5 +29,16 @@ router.post("/user/register", async(req, res, next) => {
     }
 });
 
+// Patch Requests
+router.patch("/user/updateP", async(req, res, next) => {
+    const filter = { username: req.body.username};
+    try {
+        const updated = await user.findOneAndUpdate(filter, {password: req.body.password});
+        res.send(updated);
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
