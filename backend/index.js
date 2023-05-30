@@ -17,4 +17,13 @@ mongoose
         console.log("MongoDB Connection Failed!!!");
     });
 
+// Listen on port
+let server = app.listen(port, (err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(`App listening at http://localhost:${port}`);
+    }
+});
+
 module.exports = server;
