@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Tick from '../Extras/Tick';
 
 function Copyright(props) {
   return (
@@ -48,6 +49,7 @@ export default function Login() {
 
   return (
     <>
+      {successful && <Tick />}
       {!successful && 
         <Grid container component="main" sx={{ height: '100vh' }}>
           <CssBaseline />
