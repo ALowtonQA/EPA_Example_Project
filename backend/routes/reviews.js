@@ -55,5 +55,21 @@ router.put("/review/update/:id", async(req, res, next) => {
     }
 });
 
+// Delete Requests
+router.delete("/review/delete/:id", async(req, res, next) => {
+    const filter = { _id: req.params.id };
+    try {
+        const deleted = await review.findOneAndDelete(filter);
+
+        if (deleted) 
+            res.send(deleted);
+        else 
+            res.status(404).send();
+        
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
