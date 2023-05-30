@@ -40,5 +40,15 @@ router.patch("/user/updateP", async(req, res, next) => {
     }
 });
 
+router.patch("/user/updateU", async(req, res, next) => {
+    const filter = { username: req.body.oldUsername};
+    try {
+        const updated = await user.findOneAndUpdate(filter, {username: req.body.newUsername});
+        res.send(updated);
+    } catch(err) {
+        next(new Error(err.message));
+    }
+});
+
 // Export
 module.exports = router;
