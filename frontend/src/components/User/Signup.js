@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Tick from '../Extras/Tick';
 import { useState } from 'react';
 
 function Copyright(props) {
@@ -46,6 +47,7 @@ export default function SignUp() {
 
   return (
     <>
+      {successful && <Tick />}
       {!successful && 
         <Container component="main" maxWidth="xs">
           <CssBaseline />
