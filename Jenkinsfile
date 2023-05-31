@@ -7,7 +7,8 @@ pipeline {
         
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/ALowtonQA/EPA_Example_Project'
+        git branch: 'dev',
+        url: 'https://github.com/ALowtonQA/EPA_Example_Project'
       }
     }
         
