@@ -62,4 +62,18 @@ describe('Testing the user routes', function() {
             });
     });
 
+    it('Should complete patch request with status 200', function(done) {
+        chai.request(app)
+            .patch('/user/updateU')
+            .send({
+                "oldUsername": "MochaChaiTest", 
+                "newUsername": "MochaChaiTestNew"
+            })
+            .end(function(err, response) {
+                expect(err).to.be.null;
+                expect(response).to.have.status(200);
+                done();
+            });
+    });
+    
 });
