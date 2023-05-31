@@ -49,4 +49,11 @@ describe("Did pages render correctly test", () => {
     expect(element).toBeInTheDocument();
   });
 
+  test('CreateReview page rendered correctly', () => {
+    sessionStorage.setItem("username", "Test")
+    render(<BrowserRouter> <CreateReview /> </BrowserRouter>);
+    const element = screen.getByText("Submit Review");
+    expect(element).toBeInTheDocument();
+  });
+
 });
