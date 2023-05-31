@@ -6,6 +6,8 @@ import SignUp from './components/User/Signup';
 import Reviews from './components/Reviews/Reviews';
 import UpdateUsername from './components/User/UpdateUsername';
 import UpdatePassword from './components/User/UpdatePassword';
+import DeleteUser from './components/User/DeleteUser';
+import CreateReview from './components/Reviews/CreateReview';
 
 describe("Did pages render correctly test", () => {
 
