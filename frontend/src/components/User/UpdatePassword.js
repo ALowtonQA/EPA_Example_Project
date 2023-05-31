@@ -23,7 +23,7 @@ export default function UpdatePassword() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    axios.patch("http://localhost:8080/user/updateP", {"username" : sessionStorage.getItem("username"), "password" : data.get("password")})
+    axios.patch("http://localhost:8081/user/updateP", {"username" : sessionStorage.getItem("username"), "password" : data.get("password")})
       .then((response) => {
           setIsSuccessful(true);
           setTimeout(() => {

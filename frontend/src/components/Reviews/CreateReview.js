@@ -28,7 +28,7 @@ export default function CreateReview() {
            "date": new Date() 
         };
 
-        axios.post("http://localhost:8080/review/create", newReview)
+        axios.post("http://localhost:8081/review/create", newReview)
             .then((response) => {
                 setIsSuccessful(true);
                 setTimeout(() => {

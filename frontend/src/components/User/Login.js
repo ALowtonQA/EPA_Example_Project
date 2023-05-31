@@ -36,7 +36,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    axios.post("http://localhost:8080/user/login", {"username" : data.get("username"), "password" : data.get("password")})
+    axios.post("http://localhost:8081/user/login", {"username" : data.get("username"), "password" : data.get("password")})
       .then((response) => {
           setIsSuccessful(true);
           setTimeout(() => {

@@ -19,7 +19,7 @@ export default function DeleteUser() {
     const navigate = useNavigate();
 
     const deleteReq = () => {
-        axios.delete(`http://localhost:8080/user/delete/${sessionStorage.getItem("username")}`)
+        axios.delete(`http://localhost:8081/user/delete/${sessionStorage.getItem("username")}`)
             .then((response) => {
                 setIsSuccessful(true);
                 setTimeout(() => {

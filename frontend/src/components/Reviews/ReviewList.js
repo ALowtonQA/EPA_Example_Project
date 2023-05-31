@@ -16,7 +16,7 @@ export default function ReviewList(props) {
     const [error, setError] = useState(null);
 
     const deleteReview = (id) => {
-        axios.delete(`http://localhost:8080/review/delete/${id}`)
+        axios.delete(`http://localhost:8081/review/delete/${id}`)
             .then((response) => {
                 setIsSuccessful(true);
                 setError(null);

@@ -19,7 +19,7 @@ export default function UpdateReview() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/review/get/${id}`)
+        axios.get(`http://localhost:8081/review/get/${id}`)
             .then((response) => {
                 setError(null);
                 setCurrentReview(response.data);
@@ -40,7 +40,7 @@ export default function UpdateReview() {
            "date": new Date() 
         };
 
-        axios.put(`http://localhost:8080/review/update/${id}`, newReview)
+        axios.put(`http://localhost:8081/review/update/${id}`, newReview)
             .then((response) => {
                 setIsSuccessful(true);
                 setTimeout(() => {

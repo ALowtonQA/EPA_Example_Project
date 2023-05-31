@@ -19,7 +19,7 @@ export default function Album() {
     const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/review/getAll")
+        axios.get("http://localhost:8081/review/getAll")
             .then((response) => {
                 setError(null);
                 setRefresh(false);

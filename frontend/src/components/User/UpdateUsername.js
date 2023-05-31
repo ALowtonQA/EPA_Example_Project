@@ -23,7 +23,7 @@ export default function UpdateUsername() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    axios.patch("http://localhost:8080/user/updateU", {"oldUsername" : sessionStorage.getItem("username"), "newUsername" : data.get("username")})
+    axios.patch("http://localhost:8081/user/updateU", {"oldUsername" : sessionStorage.getItem("username"), "newUsername" : data.get("username")})
       .then((response) => {
           setIsSuccessful(true);
           setTimeout(() => {
