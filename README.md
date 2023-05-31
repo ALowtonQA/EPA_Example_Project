@@ -2,7 +2,7 @@
 
 ## Summary 
 
-This repo is a Sample Case Study Project for the EPA for Software Level 4 course. 
+This repo is a Sample Case Study Project for the EPA for Software Level 4 course. Please ensure you carefully read the project brief document located in the **/documentation** folder above.
 
 It contains an example of the files and resources neccessary to reach an MVP in your software deliverable, with all KSBs being hit in line with the provided brief (see "Example Project Brief.docx"). 
 
