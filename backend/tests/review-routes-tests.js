@@ -54,4 +54,15 @@ describe('Testing the review routes', function() {
             });
     });
 
+    it('Should complete get request with status 200', function(done) {
+        chai.request(app)
+            .get(`/review/get/${result._id}`)
+            .end(function(err, response) {
+                expect(err).to.be.null;
+                expect(response).to.have.status(200);
+                expect(response.body._id).to.equal(result._id, "expected id to match")
+                done();
+            });
+    });
+
 });
