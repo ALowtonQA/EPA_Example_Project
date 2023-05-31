@@ -12,16 +12,36 @@ pipeline {
       }
     }
         
-    stage('Install dependencies') {
+    stage('Install backend dependencies') {
       steps {
-        bat 'npm install'
+        dir('backend') { 
+          bat 'npm install'
+        }
       }
     }
      
-    stage('Test') {
+    stage('Backend test') {
       steps {
-         bat 'npm test'
+        dir('backend') { 
+          bat 'npm test'
+        }
       }
-    }      
+    }
+    
+    stage('Install frontend dependencies') {
+      steps {
+        dir('frontend') { 
+          bat 'npm install'
+        }
+      }
+    }
+     
+    stage('Frontend test') {
+      steps {
+        dir('frontend') { 
+          bat 'npm test'
+        }
+      }
+    }    
   }
 }
