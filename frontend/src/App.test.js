@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import SignUp from './components/User/Signup';
 import Reviews from './components/Reviews/Reviews';
 import UpdateUsername from './components/User/UpdateUsername';
+import UpdatePassword from './components/User/UpdatePassword';
 
 describe("Did pages render correctly test", () => {
 
@@ -30,6 +31,13 @@ describe("Did pages render correctly test", () => {
   test('UpdateUsername page rendered correctly', () => {
     sessionStorage.setItem("username", "Test")
     render(<BrowserRouter> <UpdateUsername /> </BrowserRouter>);
+    const element = screen.getByText("Update");
+    expect(element).toBeInTheDocument();
+  });
+
+  test('UpdatePassword page rendered correctly', () => {
+    sessionStorage.setItem("username", "Test")
+    render(<BrowserRouter> <UpdatePassword /> </BrowserRouter>);
     const element = screen.getByText("Update");
     expect(element).toBeInTheDocument();
   });
