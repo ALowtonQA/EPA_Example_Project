@@ -4,6 +4,7 @@ import Login from './components/User/Login';
 import { BrowserRouter } from 'react-router-dom';
 import SignUp from './components/User/Signup';
 import Reviews from './components/Reviews/Reviews';
+import UpdateUsername from './components/User/UpdateUsername';
 
 describe("Did pages render correctly test", () => {
 
@@ -13,16 +14,23 @@ describe("Did pages render correctly test", () => {
     expect(element).toBeInTheDocument();
   });
   
-  test('Login page rendered correctly', () => {
+  test('SignUp page rendered correctly', () => {
     render(<BrowserRouter> <SignUp /> </BrowserRouter>);
     const element = screen.getByText("Already have an account? Sign in");
     expect(element).toBeInTheDocument();
   });
 
-  test('Login page rendered correctly', () => {
+  test('Reviews page rendered correctly', () => {
     sessionStorage.setItem("username", "Test")
     render(<BrowserRouter> <Reviews /> </BrowserRouter>);
     const element = screen.getByText("Write a Review");
+    expect(element).toBeInTheDocument();
+  });
+
+  test('UpdateUsername page rendered correctly', () => {
+    sessionStorage.setItem("username", "Test")
+    render(<BrowserRouter> <UpdateUsername /> </BrowserRouter>);
+    const element = screen.getByText("Update");
     expect(element).toBeInTheDocument();
   });
 
