@@ -42,4 +42,11 @@ describe("Did pages render correctly test", () => {
     expect(element).toBeInTheDocument();
   });
 
+  test('DeleteUser page rendered correctly', () => {
+    sessionStorage.setItem("username", "Test")
+    render(<BrowserRouter> <DeleteUser /> </BrowserRouter>);
+    const element = screen.getByText("Delete");
+    expect(element).toBeInTheDocument();
+  });
+
 });
