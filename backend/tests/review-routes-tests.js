@@ -64,5 +64,15 @@ describe('Testing the review routes', function() {
                 done();
             });
     });
+    
+    it('Should complete delete request with status 200', function(done) {
+        chai.request(app)
+            .delete(`/review/delete/${result._id}`)
+            .end(function(err, response) {
+                expect(err).to.be.null;
+                expect(response).to.have.status(200);
+                done();
+            });
+    });
 
 });
