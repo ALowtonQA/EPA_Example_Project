@@ -43,4 +43,15 @@ describe('Testing the review routes', function() {
             });
     });
 
+    it('Should complete getAll request with status 200', function(done) {
+        chai.request(app)
+            .get('/review/getAll')
+            .end(function(err, response) {
+                expect(err).to.be.null;
+                expect(response).to.have.status(200);
+                expect(response.body).to.have.lengthOf.above(1);
+                done();
+            });
+    });
+
 });
