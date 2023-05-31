@@ -75,5 +75,15 @@ describe('Testing the user routes', function() {
                 done();
             });
     });
+
+    it('Should complete delete request with status 200', function(done) {
+        chai.request(app)
+            .delete('/user/delete/MochaChaiTestNew')
+            .end(function(err, response) {
+                expect(err).to.be.null;
+                expect(response).to.have.status(200);
+                done();
+            });
+    });
     
 });
