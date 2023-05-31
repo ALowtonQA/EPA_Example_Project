@@ -2,7 +2,7 @@
 
 ## Summary 
 
-This repo is a Sample Case Study Project for the EPA for Software Level 4 course. Please ensure you carefully read the project brief document located in the **/documentation** folder above.
+This repo is a Sample Case Study Project for the EPA for Software Level 4 course. Please ensure you carefully read the project brief document located in the [documentation](/documentation) folder above.
 
 This repo contains an example of the files and resources neccessary to reach an MVP in your software deliverable, with all KSBs being hit in line with the provided brief (see "Example Project Brief.docx"). 
 
@@ -71,6 +71,11 @@ You should start with forking this repo to your own personal profile and then cl
   - [Docker installation guide](https://www.jenkins.io/doc/book/installing/docker/)  
   - [More installation guides](https://www.jenkins.io/doc/book/installing/)  
   
+  For a detailed guide on how the pipeline for this example was set up, there is a written guide in the [documentation](/documentation) folder above.
+  
+  To reach MVP, the goal is to have a pipeline that fully builds and tests your application, passing at every stage, like so: 
+  ![Pipeline success image](/documentation/pipeline_success.png)
+  
 </details>
 
 ### Getting Started
@@ -91,3 +96,19 @@ Note that the password is visible, so you would want to explore the use of `proc
 Then run `npm start` in both folders to spin up the application.
 
 Then the site will then be available at `localhost:3000`.
+
+## A Note on Styling
+[MaterialUI](https://mui.com/) is used for styling in this example due to it's out of the box simplicity with React. 
+[Bootstrap](https://getbootstrap.com/) or similar libraries are also viable alternatives.
+
+For further simplicity, when designing pages, MaterialUI [templates](https://mui.com/material-ui/getting-started/templates/) were used. 
+
+When you view the source behind these templates and compare them to the pages in this project (components such as Login & SignUp) you will see only minor modifications were made in some instances. 
+
+You could try using a [diff tool](https://www.diffchecker.com/) or features like "compare" in VSCode to make this comparison easier. 
+
+Here is a full list of MaterialUI templates and components used:
+- [Side-in side](https://github.com/mui/material-ui/tree/v5.12.3/docs/data/material/getting-started/templates/sign-in-side)
+- [Sign Up](https://github.com/mui/material-ui/tree/v5.12.3/docs/data/material/getting-started/templates/sign-up)
+- [Album](https://github.com/mui/material-ui/tree/v5.12.3/docs/data/material/getting-started/templates/album)
+- [App Bar w/ Responsive Menu](https://mui.com/material-ui/react-app-bar/#app-bar-with-responsive-menu)
