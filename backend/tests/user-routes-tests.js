@@ -20,4 +20,18 @@ describe('Testing the user routes', function() {
             });
     });
 
+    it('Should complete post request with status 200', function(done) {
+        chai.request(app)
+            .post('/user/login')
+            .send({
+                "username": "MochaChaiTest", 
+                "password": "Test"
+            })
+            .end(function(err, response) {
+                expect(err).to.be.null;
+                expect(response).to.have.status(200);
+                done();
+            });
+    });
+
 });
