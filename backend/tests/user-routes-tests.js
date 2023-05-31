@@ -34,4 +34,18 @@ describe('Testing the user routes', function() {
             });
     });
 
+    it('Should fail login with status 404', function(done) {
+        chai.request(app)
+            .post('/user/login')
+            .send({
+                "username": "MochaChaiTest", 
+                "password": "WrongPassword"
+            })
+            .end(function(err, response) {
+                expect(err).to.be.null;
+                expect(response).to.have.status(404);
+                done();
+            });
+    });
+
 });
